@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CRM_Desafio_Back_End.Model
 {
     [Table("usuario")]
-    public class Usuario
+    public class User
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,11 +15,11 @@ namespace CRM_Desafio_Back_End.Model
         public DateTime created_at { get; private set; }
         public DateTime updated_at { get; private set; }
 
-        public Usuario()
+        public User()
         {
         }
 
-        public Usuario(string name, string email, DateOnly birthday, DateTime created_at, DateTime updated_at)
+        public User(string name, string email, DateOnly birthday, DateTime created_at, DateTime updated_at)
         {
             this.name = name;
             this.email = email;

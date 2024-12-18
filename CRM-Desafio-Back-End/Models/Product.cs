@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CRM_Desafio_Back_End.Model
 {
     [Table("produto")]
-    public class Produto
+    public class Product
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,11 +13,11 @@ namespace CRM_Desafio_Back_End.Model
         public int amount { get; private set; }
         public decimal value { get; private set; }
 
-        public Produto()
+        public Product()
         {
         }
 
-        public Produto(string name, int amount, decimal value)
+        public Product(string name, int amount, decimal value)
         {
             this.name = name;
             this.amount = amount;
