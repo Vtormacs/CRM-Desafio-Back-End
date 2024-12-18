@@ -5,23 +5,23 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace CRM_Desafio_Back_End.Model
 {
-    public class Movement
+    public class MovementModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; private set; }
         public DateTime created_at { get; private set; }
         public DateTime updated_at { get; private set; }
-        public IList<Product> products { get; private set; } = new List<Product>();
-        public User user { get; private set; }
+        public IList<ProductModel> products { get; private set; } = new List<ProductModel>();
+        public UserModel user { get; private set; }
         public PaymentType paymentType { get; private set; }
         public Boolean blocked { get; private set; }
 
-        public Movement()
+        public MovementModel()
         {
         }
 
-        public Movement(DateTime created_at, DateTime updated_at, IList<Product> products, User user, PaymentType paymentType, bool blocked)
+        public MovementModel(DateTime created_at, DateTime updated_at, IList<ProductModel> products, UserModel user, PaymentType paymentType, bool blocked)
         {
             this.created_at = created_at;
             this.updated_at = updated_at;

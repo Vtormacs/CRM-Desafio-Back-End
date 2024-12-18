@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRM_Desafio_Back_End.Model
 {
-    public class User
+    public class UserModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -15,11 +15,11 @@ namespace CRM_Desafio_Back_End.Model
         public DateTime updated_at { get; private set; }
         public IList<MovementModel> movements { get; private set; } = new List<MovementModel>();
 
-        public User()
+        public UserModel()
         {
         }
 
-        public User(string name, string email, DateOnly birthday, DateTime created_at, DateTime updated_at)
+        public UserModel(string name, string email, DateOnly birthday, DateTime created_at, DateTime updated_at)
         {
             this.name = name;
             this.email = email;

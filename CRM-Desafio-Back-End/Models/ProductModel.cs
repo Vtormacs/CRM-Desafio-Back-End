@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRM_Desafio_Back_End.Model
 {
-    public class Product
+    public class ProductModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -13,11 +13,11 @@ namespace CRM_Desafio_Back_End.Model
         public decimal value { get; private set; }
         public IList<MovementModel> movements { get; private set; } = new List<MovementModel>();
 
-        public Product()
+        public ProductModel()
         {
         }
 
-        public Product(string name, int amount, decimal value)
+        public ProductModel(string name, int amount, decimal value)
         {
             this.name = name;
             this.amount = amount;
