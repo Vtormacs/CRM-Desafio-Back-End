@@ -13,7 +13,7 @@ namespace CRM_Desafio_Back_End.Model
         public DateOnly birthday { get; private set; }
         public DateTime created_at { get; private set; }
         public DateTime updated_at { get; private set; }
-        public IList<Movement> movements { get; private set; } = new List<Movement>();
+        public IList<MovementModel> movements { get; private set; } = new List<MovementModel>();
 
         public User()
         {

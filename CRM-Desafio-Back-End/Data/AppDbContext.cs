@@ -9,8 +9,8 @@ namespace CRM_Desafio_Back_End.Data
         {
         }
 
-        public DbSet<User> users { get; set; }
-        public DbSet<Product> products { get; set; }
-        public DbSet<Movement> movements { get; set; }
+        public DbSet<UserModel> users { get; set; }
+        public DbSet<ProductModel> products { get; set; }
+        public DbSet<MovementModel> movements { get; set; }
     }
 }

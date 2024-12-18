@@ -11,7 +11,7 @@ namespace CRM_Desafio_Back_End.Model
         public string name { get; private set; }
         public int amount { get; private set; }
         public decimal value { get; private set; }
-        public IList<Movement> movements { get; private set; } = new List<Movement>();
+        public IList<MovementModel> movements { get; private set; } = new List<MovementModel>();
 
         public Product()
         {
