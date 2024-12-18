@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CRM_Desafio_Back_End.Model
 {
-    [Table("product")]
     public class Product
     {
         [Key]

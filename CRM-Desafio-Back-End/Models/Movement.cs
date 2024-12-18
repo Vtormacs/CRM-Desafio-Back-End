@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Components.Web;
 
 namespace CRM_Desafio_Back_End.Model
 {
-    [Table("movement")]
     public class Movement
     {
         [Key]
