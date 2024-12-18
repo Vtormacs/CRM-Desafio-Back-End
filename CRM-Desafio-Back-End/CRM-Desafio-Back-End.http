@@ -1,0 +1,6 @@
+@CRM_Desafio_Back_End_HostAddress = http://localhost:5163
+
+GET {{CRM_Desafio_Back_End_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
