@@ -23,6 +23,8 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Services\Movement\" />
+    <Folder Include="Services\Product\" />
   </ItemGroup>
 
 </Project>
