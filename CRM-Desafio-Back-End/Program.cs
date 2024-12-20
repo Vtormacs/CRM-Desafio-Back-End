@@ -1,4 +1,6 @@
 using CRM_Desafio_Back_End.Data;
+using CRM_Desafio_Back_End.Repositories.Movement;
+using CRM_Desafio_Back_End.Repositories.Product;
 using CRM_Desafio_Back_End.Repositories.User;
 using CRM_Desafio_Back_End.Services.Movement;
 using CRM_Desafio_Back_End.Services.Product;
@@ -18,6 +20,8 @@ builder.Services.AddScoped<IUserInterface, UserService>();
 builder.Services.AddScoped<IProductInterface, ProductService>();
 builder.Services.AddScoped<IMovementInterface, MovementService>();
 builder.Services.AddScoped<IUserRespository, UserRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IMovementRepository, MovementRpository>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
           options.UseNpgsql(builder.Configuration.GetConnectionString("ConnectionString"), npgsqlOptions =>
