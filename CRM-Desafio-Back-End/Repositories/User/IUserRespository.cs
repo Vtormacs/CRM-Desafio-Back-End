@@ -8,6 +8,6 @@ namespace CRM_Desafio_Back_End.Repositories.User
         Task<List<UserModel>> listarUsers();
         Task<UserModel> buscarPorId(int id);
         Task<UserModel?> excluirPorId(int id);
-        Task<List<UserModel>> criarUser(UserCriacaoDto userCriacaoDto);
+        Task<List<UserModel>> criarUser(UserModel userModel);
     }
 }
