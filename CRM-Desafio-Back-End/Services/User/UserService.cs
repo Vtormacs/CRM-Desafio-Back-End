@@ -40,13 +40,27 @@ namespace CRM_Desafio_Back_End.Services.User
 
         public async Task<ResponseModel<UserModel>> excluirUser(int id)
         {
+            ResponseModel<UserModel> resposta = new ResponseModel<UserModel>();
             try
             {
-                return null;
+                var user = await _userRespository.excluirPorId(id);
+
+                if (user == null)
+                {
+                    resposta.mensagem = "Usuario não encontrado";
+                    resposta.status = false;
+                    return resposta;
+                }
+
+                resposta.dados = user;
+                resposta.mensagem = "Usuario excluído com sucesso";
+                return resposta;
             }
             catch (Exception e)
             {
-                return null;
+                resposta.mensagem = e.Message;
+                resposta.status = false;
+                return resposta;
             }
         }
 
