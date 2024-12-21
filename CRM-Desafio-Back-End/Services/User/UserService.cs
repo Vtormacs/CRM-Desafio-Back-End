@@ -99,7 +99,6 @@ namespace CRM_Desafio_Back_End.Services.User
                 if (user == null)
                 {
                     resposta.mensagem = "Usuario não encontrado";
-                    resposta.status = false;
                     return resposta;
                 }
 
