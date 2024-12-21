@@ -17,7 +17,18 @@ namespace CRM_Desafio_Back_End.Services.User
             ResponseModel<UserModel> resposta = new ResponseModel<UserModel>();
             try
             {
-                
+                var user = await _userRespository.buscarPorId(id);
+
+                if (user == null)
+                {
+                    resposta.mensagem = "Usuario não encontrado";
+                    resposta.status = false;
+                    return resposta;
+                }
+
+                resposta.dados = user;
+                resposta.mensagem = "Usuario coletado do banco";
+                return resposta;
             }
             catch (Exception e)
             {
