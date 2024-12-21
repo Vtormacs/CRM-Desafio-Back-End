@@ -30,7 +30,7 @@ namespace CRM_Desafio_Back_End.Repositories.User
 
         public async Task<UserModel?> excluirPorId(int id)
         {
-            var user = await _appDbContext.users.FindAsync(id);
+            var user = await _appDbContext.users.FirstOrDefaultAsync(x => x.id == id);
             if (user == null)
             {
                 return null;
