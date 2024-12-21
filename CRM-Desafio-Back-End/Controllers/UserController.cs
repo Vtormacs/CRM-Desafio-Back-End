@@ -42,5 +42,12 @@ namespace CRM_Desafio_Back_End.Controllers
             var users = await _userInterface.criarUser(userCriacaoDto);
             return Ok(users);
         }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<ResponseModel<UserModel>>> ExcexcluirUser(int id)
+        {
+            var user = await _userInterface.excluirUser(id);
+            return Ok(user);
+        }
     }
 }
