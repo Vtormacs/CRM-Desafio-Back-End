@@ -1,4 +1,5 @@
-﻿using CRM_Desafio_Back_End.Model;
+﻿using CRM_Desafio_Back_End.Dtos.User;
+using CRM_Desafio_Back_End.Model;
 using CRM_Desafio_Back_End.Models;
 using CRM_Desafio_Back_End.Services.User;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +29,18 @@ namespace CRM_Desafio_Back_End.Controllers
         {
             var user = await _userInterface.buscarUserPorId(id);
             return Ok(user);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<ResponseModel<List<UserModel>>>> CriarUser([FromBody] UserCriacaoDto userCriacaoDto)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var users = await _userInterface.criarUser(userCriacaoDto);
+            return Ok(users);
         }
     }
 }
