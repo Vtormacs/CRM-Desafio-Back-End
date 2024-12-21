@@ -61,8 +61,8 @@ namespace CRM_Desafio_Back_End.Services.User
                     name: userCriacaoDto.name,
                     email: userCriacaoDto.email,
                     birthday: userCriacaoDto.birthday,
-                    created_at: DateTime.Now,
-                    updated_at: DateTime.Now
+                    created_at: DateTime.UtcNow,
+                    updated_at: DateTime.UtcNow
                     );
 
                 await _userRespository.criarUser(user);
@@ -74,7 +74,11 @@ namespace CRM_Desafio_Back_End.Services.User
             }
             catch (Exception e)
             {
-                resposta.mensagem = e.Message;
+                resposta.mensagem = $"An error occurred: {e.Message}";
+                if (e.InnerException != null)
+                {
+                    resposta.mensagem += $" Inner exception: {e.InnerException.Message}";
+                }
                 resposta.status = false;
                 return resposta;
             }
