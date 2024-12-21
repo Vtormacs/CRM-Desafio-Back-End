@@ -1,4 +1,5 @@
-﻿using CRM_Desafio_Back_End.Model;
+﻿using CRM_Desafio_Back_End.Dtos.User;
+using CRM_Desafio_Back_End.Model;
 using CRM_Desafio_Back_End.Models;
 using CRM_Desafio_Back_End.Repositories.User;
 
@@ -41,6 +42,34 @@ namespace CRM_Desafio_Back_End.Services.User
 
                 resposta.dados = user;
                 resposta.mensagem = "Usuario coletado do banco";
+                return resposta;
+            }
+            catch (Exception e)
+            {
+                resposta.mensagem = e.Message;
+                resposta.status = false;
+                return resposta;
+            }
+        }
+
+        public async Task<ResponseModel<List<UserModel>>> criarUser(UserCriacaoDto userCriacaoDto)
+        {
+            ResponseModel<List<UserModel>> resposta = new ResponseModel<List<UserModel>>();
+            try
+            {
+                var user = new UserModel(
+                    name: userCriacaoDto.name,
+                    email: userCriacaoDto.email,
+                    birthday: userCriacaoDto.birthday,
+                    created_at: DateTime.Now,
+                    updated_at: DateTime.Now
+                    );
+
+                await _userRespository.criarUser(user);
+
+                var users = await _userRespository.listarUsers();
+                resposta.dados = users;
+                resposta.mensagem = "Usuario criado com sucesso";
                 return resposta;
             }
             catch (Exception e)
