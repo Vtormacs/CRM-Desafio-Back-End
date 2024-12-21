@@ -4,14 +4,27 @@ using CRM_Desafio_Back_End.Repositories.User;
 
 namespace CRM_Desafio_Back_End.Services.User
 {
+    /// <summary>
+    /// Serviço para gerenciar operações relacionadas a usuários.
+    /// </summary>
     public class UserService : IUserInterface
     {
         private readonly IUserRespository _userRespository;
+
+        /// <summary>
+        /// Construtor para injetar dependências.
+        /// </summary>
+        /// <param name="userRespository">Repositório de usuários.</param>
         public UserService(IUserRespository userRespository)
         {
             _userRespository = userRespository;
         }
 
+        /// <summary>
+        /// Busca um usuário pelo ID.
+        /// </summary>
+        /// <param name="id">ID do usuário.</param>
+        /// <returns>Modelo de resposta contendo o usuário.</returns>
         public async Task<ResponseModel<UserModel>> buscarUserPorId(int id)
         {
             ResponseModel<UserModel> resposta = new ResponseModel<UserModel>();
@@ -38,6 +51,11 @@ namespace CRM_Desafio_Back_End.Services.User
             }
         }
 
+        /// <summary>
+        /// Exclui um usuário pelo ID.
+        /// </summary>
+        /// <param name="id">ID do usuário.</param>
+        /// <returns>Modelo de resposta contendo o usuário excluído.</returns>
         public async Task<ResponseModel<UserModel>> excluirUser(int id)
         {
             ResponseModel<UserModel> resposta = new ResponseModel<UserModel>();
@@ -64,6 +82,10 @@ namespace CRM_Desafio_Back_End.Services.User
             }
         }
 
+        /// <summary>
+        /// Lista todos os usuários.
+        /// </summary>
+        /// <returns>Modelo de resposta contendo a lista de usuários.</returns>
         public async Task<ResponseModel<List<UserModel>>> listarUsers()
         {
             ResponseModel<List<UserModel>> resposta = new ResponseModel<List<UserModel>>();
