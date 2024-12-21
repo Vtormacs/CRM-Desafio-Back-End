@@ -22,5 +22,12 @@ namespace CRM_Desafio_Back_End.Controllers
             var users = await _userInterface.listarUsers();
             return Ok(users);
         }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<ResponseModel<UserModel>>> BuscarUserPorId(int id)
+        {
+            var user = await _userInterface.buscarUserPorId(id);
+            return Ok(user);
+        }
     }
 }
