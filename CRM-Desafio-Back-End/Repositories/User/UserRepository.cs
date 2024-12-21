@@ -1,4 +1,5 @@
 ﻿using CRM_Desafio_Back_End.Data;
+using CRM_Desafio_Back_End.Dtos.User;
 using CRM_Desafio_Back_End.Model;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,13 @@ namespace CRM_Desafio_Back_End.Repositories.User
             return await _appDbContext.users
             .Include(u => u.movements)
             .FirstOrDefaultAsync(x => x.id == id);
+        }
+
+        public async Task<List<UserModel>> criarUser(UserModel userModel)
+        {
+            await _appDbContext.users.AddAsync(userModel);
+            await _appDbContext.SaveChangesAsync();
+            return await listarUsers();
         }
 
         public async Task<UserModel?> excluirPorId(int id)
