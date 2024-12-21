@@ -14,13 +14,16 @@ namespace CRM_Desafio_Back_End.Services.User
 
         public async Task<ResponseModel<UserModel>> buscarUserPorId(int id)
         {
+            ResponseModel<UserModel> resposta = new ResponseModel<UserModel>();
             try
             {
-                return null;
+                
             }
             catch (Exception e)
             {
-                return null;
+                resposta.mensagem = e.Message;
+                resposta.status = false;
+                return resposta;
             }
         }
 
