@@ -2,9 +2,9 @@
 
 namespace CRM_Desafio_Back_End.Services.Product
 {
-    public interface IProductInterface
+    public interface IProductService
     {
-        Task<ProductViewDto> criarProduto(ProductCriacaoDto productCriacaoDto);
+        Task<ProductViewDto> cadatrarProduto(ProductCriacaoDto productCriacaoDto);
         Task<List<ProductViewDto>> listarProdutos();
     }
 }

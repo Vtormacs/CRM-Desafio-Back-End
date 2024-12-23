@@ -18,7 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUserInterface, UserService>();
-builder.Services.AddScoped<IProductInterface, ProductService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IMovementInterface, MovementService>();
 builder.Services.AddScoped<IUserRespository, UserRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();

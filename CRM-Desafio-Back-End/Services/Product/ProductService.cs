@@ -5,7 +5,7 @@ using CRM_Desafio_Back_End.Repositories.Product;
 
 namespace CRM_Desafio_Back_End.Services.Product
 {
-    public class ProductService : IProductInterface
+    public class ProductService : IProductService
     {
         public readonly IProductRepository _productRepository;
         public readonly IMapper _mapper;
