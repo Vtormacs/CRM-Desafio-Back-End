@@ -52,6 +52,11 @@ namespace CRM_Desafio_Back_End.Services.User
             }
         }
 
+        /// <summary>
+        /// Cria um novo usuário e retorna a lista atualizada de usuários.
+        /// </summary>
+        /// <param name="userCriacaoDto">Objeto DTO contendo as informações do usuário a ser criado.</param>
+        /// <returns>Modelo de resposta contendo a lista de usuários atualizada.</returns>
         public async Task<ResponseModel<List<UserModel>>> criarUser(UserCriacaoDto userCriacaoDto)
         {
             ResponseModel<List<UserModel>> resposta = new ResponseModel<List<UserModel>>();
