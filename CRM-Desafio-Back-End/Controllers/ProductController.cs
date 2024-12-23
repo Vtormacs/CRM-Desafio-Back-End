@@ -15,10 +15,17 @@ namespace CRM_Desafio_Back_End.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ProductViewDto>> CreateProduct([FromBody] ProductCriacaoDto productCriacaoDto)
+        public async Task<ActionResult<ProductViewDto>> CadastrarProduto([FromBody] ProductCriacaoDto productCriacaoDto)
         {
             var product = await _productService.cadatrarProduto(productCriacaoDto);
             return Ok(product);
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<ProductViewDto>>> ListarProdutos()
+        {
+            var products = await _productService.listarProdutos();
+            return Ok(products);
         }
     }
 }
