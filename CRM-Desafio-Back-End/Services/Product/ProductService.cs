@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CRM_Desafio_Back_End.Dtos.Product;
+using CRM_Desafio_Back_End.Model;
 using CRM_Desafio_Back_End.Repositories.Product;
 
 namespace CRM_Desafio_Back_End.Services.Product
@@ -13,9 +14,11 @@ namespace CRM_Desafio_Back_End.Services.Product
             _productRepository = productRepository;
             _mapper = mapper;
         }
-        public Task<ProductViewDto> criarProduto(ProductCriacaoDto produto)
+        public async Task<ProductViewDto> cadatrarProduto(ProductCriacaoDto productCriacaoDto)
         {
-            throw new NotImplementedException();
+            var productModel = _mapper.Map<ProductModel>(productCriacaoDto);
+            await _productRepository.cadatrarProduto(productModel);
+            return _mapper.Map<ProductViewDto>(productModel);
         }
 
         public Task<List<ProductViewDto>> listarProdutos()
