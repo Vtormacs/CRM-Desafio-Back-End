@@ -14,13 +14,13 @@ namespace CRM_Desafio_Back_End.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserInterface _userInterface;
+        private readonly IUserService _userInterface;
 
         /// <summary>
         /// Construtor para injetar dependências.
         /// </summary>
         /// <param name="userInterface">Interface de serviço de usuário.</param>
-        public UserController(IUserInterface userInterface)
+        public UserController(IUserService userInterface)
         {
             _userInterface = userInterface;
         }

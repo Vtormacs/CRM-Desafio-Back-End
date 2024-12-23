@@ -8,7 +8,7 @@ namespace CRM_Desafio_Back_End.Services.User
     /// <summary>
     /// Serviço para gerenciar operações relacionadas a usuários.
     /// </summary>
-    public class UserService : IUserInterface
+    public class UserService : IUserService
     {
         private readonly IUserRespository _userRespository;
 
