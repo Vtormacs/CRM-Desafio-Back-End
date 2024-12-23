@@ -21,9 +21,10 @@ namespace CRM_Desafio_Back_End.Services.Product
             return _mapper.Map<ProductViewDto>(productModel);
         }
 
-        public Task<List<ProductViewDto>> listarProdutos()
+        public async Task<List<ProductViewDto>> listarProdutos()
         {
-            throw new NotImplementedException();
+            var products = await _productRepository.listarProdutos();
+            return _mapper.Map<List<ProductViewDto>>(products);
         }
     }
 }
